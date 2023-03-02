@@ -16,10 +16,10 @@ import io.cucumber.junit.CucumberOptions;
 
 				// if true, it does not run the java classes. Only checks the feature files
 				// if they are glued to some java code
-				dryRun = true,
+				dryRun = false,
 
 				// tags can  the same thing groups on TestNG do
-				tags = "@smoke",   //~@smoke   ~  makes smoke tag exclude 
+				tags = "@Task",   //~@smoke   ~  makes smoke tag exclude 
 
 				monochrome = true
 		    )

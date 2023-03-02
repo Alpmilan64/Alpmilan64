@@ -22,7 +22,7 @@ public class LoginHRMSteps  extends CommonMethods{
 		System.out.println(" Is it working?");
 		login.adminLogin();
 	}
-	
+
 	@When("I enter a valid username")
 	public void i_enter_a_valid_username() {
 		sendText(login.password, ConfigsReader.getProperty("username"));
@@ -33,7 +33,7 @@ public class LoginHRMSteps  extends CommonMethods{
 		sendText(login.password,ConfigsReader.getProperty("password"));
 
 	}
-	
+
 	@When("I click on the login button")
 	public void i_click_on_the_login_button() {
 		click(login.logInButton);
@@ -51,6 +51,33 @@ public class LoginHRMSteps  extends CommonMethods{
 			System.out.println("Test Failed.");
 		}
 	}
+
+	@Given("user enter valid username")
+	public void user_enter_valid_username() {
+		sendText(login.username,ConfigsReader.getProperty("username"));
+
+	}
+	@Given("user enter invalid password")
+	public void user_enter_invalid_password() {
+		sendText(login.password,ConfigsReader.getProperty("password"));
+
+
+	}
+	@Given("user click login button")
+	public void user_click_login_button() {
+	
+	click(login.logInButton);
+	
+ wait(2);
+
+	}
+	@Then("I validate that invalid credential is displayed")
+	public void i_validate_that_invalid_credential_is_displayed() {
+		System.out.println("Invalid password and test failed");
+
+
+	}
+
 
 
 }
