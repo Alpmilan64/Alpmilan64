@@ -39,9 +39,11 @@ public class LoginHRMSteps  extends CommonMethods{
 		click(login.logInButton);
 		wait(2);
 	}
-	@Then("I validate that i am logged in")
-	public void i_validate_that_i_am_logged_in() {
-		String expected = "Jakie White";
+	
+
+  @Then("I validate that I am logged in")
+   public void i_validate_that_i_am_logged_in() {
+	  String expected = "Jakie White";
 		String actual= dashboard.accountName.getText();
 
 		if (actual.equals(expected)) {
@@ -50,14 +52,18 @@ public class LoginHRMSteps  extends CommonMethods{
 		else {
 			System.out.println("Test Failed.");
 		}
-	}
+  }
+
+
+
+
 
 	@Given("user enter valid username")
 	public void user_enter_valid_username() {
 		sendText(login.username,ConfigsReader.getProperty("username"));
 
 	}
-	@Given("user enter invalid password")
+	@Given("I enter an invalid password")
 	public void user_enter_invalid_password() {
 		sendText(login.password,ConfigsReader.getProperty("password"));
 
@@ -71,7 +77,7 @@ public class LoginHRMSteps  extends CommonMethods{
  wait(2);
 
 	}
-	@Then("I validate that invalid credential is displayed")
+	@Then("I validate that Invalid Credentials is displayed")
 	public void i_validate_that_invalid_credential_is_displayed() {
 		System.out.println("Invalid password and test failed");
 

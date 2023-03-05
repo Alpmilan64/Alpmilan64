@@ -375,7 +375,7 @@ public class CommonMethods  extends PageInitializer {
 	 * 
 	 * @param filename
 	 */
-	public static String  takeScreenshot(String filename) {
+	public static byte []  takeScreenshot(String filename) {
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		
@@ -391,8 +391,10 @@ public class CommonMethods  extends PageInitializer {
 			e.printStackTrace();
 		}
 
-		return destination;
-	
+		//get the screenshot as a byte[]
+				byte[] picBytes = ts.getScreenshotAs(OutputType.BYTES);
+
+				return picBytes;
 	}
 
 	/**

@@ -19,7 +19,7 @@ import io.cucumber.junit.CucumberOptions;
 				dryRun = false,
 
 				// tags can  the same thing groups on TestNG do
-				tags = "@Task",   //~@smoke   ~  makes smoke tag exclude 
+				tags = "@smoke",   //~@smoke   ~  makes smoke tag exclude 
 
 				monochrome = true
 		    )

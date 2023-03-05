@@ -3,6 +3,10 @@ package com.neotech.utils;
 import java.io.FileInputStream;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -77,6 +81,31 @@ public class ExcelUtility {
 
 		// return the object that has been filled
 		return data;
+	}
+    
+	public static List<Map<String, String>> excelIntoListOfMaps(String filePath, String sheetName) {
+
+		openExcel(filePath);
+		loadSheet(sheetName);
+
+		List<Map<String, String>> list = new ArrayList<>();
+
+		for (int row = 1; row < rowCount(); row++) {
+			// for each data row I will create a Map
+			Map<String, String> rowMap = new LinkedHashMap<>();
+
+			// fill the Map
+			for (int col = 0; col < colCount(row); col++) {
+				String key = cellData(0, col);
+				String value = cellData(row, col);
+				rowMap.put(key, value);
+			}
+
+			// add the Map to the list
+			list.add(rowMap);
+		}
+
+		return list;
 	}
 
 
